@@ -20,6 +20,10 @@ function onConnected(socket) {
         io.emit('clients-total', socketsConnected.size);
     })
 
+    socket.on('message', (data) => {
+        socket.broadcast.emit('chat-message',data);
+    })
+
 }
 
 app.use(express.static(path.resolve('./public')));
