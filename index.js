@@ -24,6 +24,10 @@ function onConnected(socket) {
         socket.broadcast.emit('chat-message',data);
     })
 
+    socket.on('feedback', (data) => {
+        socket.broadcast.emit('feedback',data);
+    })
+
 }
 
 app.use(express.static(path.resolve('./public')));
